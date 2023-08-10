@@ -19,7 +19,6 @@ function App() {
     <ThemeProvider>
       <StyledBox className={classes.mainRoot}>
         <Header />
-        <FormData />
         <TestimonialCard />
         <TextBanner />
         <Banner />

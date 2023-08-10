@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     textTranform: "none",
     backgroundColor: "white",
     fontFamily: "Poppins !important",
-    fontWeight: "500 !important",
+    fontWeight: "400 !important",
     fontSize: "14px !important",
     // lineHeight: "46.95px !important",
     textAlign: "center",
@@ -79,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    width: "100%",
   },
   selectedButton: {
     backgroundColor: "gray !important", // Change this to your desired background color
@@ -151,8 +152,11 @@ const useStyles = makeStyles((theme) => ({
   qBtn: {
     borderRadius: "23px !important",
     padding: "1em 2em !important",
+    color: "#FFF !important",
+
     // backgroundColor: "#F8F8F8 !important",
     display: "flex",
+    position: "relative", // Enable positioning context for the button
     flexDirection: "column",
     alignItems: "center",
     fontFamily: "Poppins !important",
@@ -173,6 +177,21 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       fontSize: "16px !important",
     },
+    "&:hover": {
+      "&::before": {
+        borderRadius: "23px !important",
+        content: '""',
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        color: "white",
+        opacity: "0.1",
+        backgroundColor: "#28ACF5", // Adjust the color as needed
+        top: "5px", // Adjust as needed to position the rectangle below the button
+        left: "10px", // Adjust as needed to position the rectangle to the left of the button
+        // zIndex: -1,
+      },
+    },
     "& .MuiButton-label": {
       marginTop: "1em",
       height: 40,
@@ -189,7 +208,8 @@ const useStyles = makeStyles((theme) => ({
   qBtnSimple: {
     borderRadius: "23px !important",
     padding: "1em 2em !important",
-    // backgroundColor: "#F8F8F8 !important",
+    position: "relative", // Enable positioning context for the button
+    backgroundColor: "#F8F8F8 !important",
     color: "#6B6B6B",
     fontFamily: "Poppins !important",
     fontWeight: "500 !important",
@@ -209,6 +229,22 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       fontSize: "16px !important",
     },
+    "&:hover": {
+      "&::before": {
+        content: '""',
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        color: "whtie",
+        borderRadius: "23px !important",
+        opacity: "0.2",
+        backgroundColor: "#28ACF5", // Adjust the color as needed
+        // Adjust the color as needed
+        top: "05px", // Adjust as needed to position the rectangle below the button
+        left: "10px", // Adjust as needed to position the rectangle to the left of the button
+        // zIndex: -1,
+      },
+    },
   },
   qText: {
     fontFamily: "Poppins !important",
@@ -218,10 +254,19 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: "#0779B8",
     marginTop: ".5em !important",
+    animation: "$fadeIn 1s ease-in-out",
+  },
+  "@keyframes fadeIn": {
+    "0%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
+    },
   },
   stepSettings: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-between !important",
     alignItems: "center",
     width: "100% !important",
   },

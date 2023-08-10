@@ -177,80 +177,75 @@ const FormData = () => {
   };
 
   return (
-    <Formik
-      initialValues={{
-        residence: "",
-        owner: true,
-        bill: "",
-        address: "",
-        name: "",
-        email: "",
-        phone: "",
-        // Add other form fields here
+    <StyledBox
+      sx={{
+        width: "100%",
+        justifyContent: "space-between",
       }}
-      innerRef={formRef}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
     >
-      {({
-        values,
-        handleChange,
-        handleBlur,
-        touched,
-        errors,
-        setFieldValue,
-      }) => (
-        <Form>
-          <StyledBox
-            sx={{ width: "100% " }}
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <StyledTypography className={classes.mainTypo}>
-              See how much you can save by going Solar!
-            </StyledTypography>
-            <Stepper
-              className={classes.stepSettings}
-              nonLinear
-              activeStep={activeStep}
-              connector={<div></div>}
-              padding="0"
+      <Formik
+        initialValues={{
+          residence: "",
+          owner: true,
+          bill: "",
+          address: "",
+          name: "",
+          email: "",
+          phone: "",
+          // Add other form fields here
+        }}
+        innerRef={formRef}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
+        {({ values, setFieldValue }) => (
+          <Form>
+            <StyledBox
+              sx={{ width: "100% " }}
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-between"
+              alignItems="center"
             >
-              {steps.map((label, index) => (
-                <Step completed={completed[index]} key={label}>
-                  <span
-                    className={`${classes.stepButton} ${
-                      index === 2 ? classes.billStep : classes.otherStep
-                    }`}
-                    onClick={handleStep(index)}
-                    completed={completed[index]}
-                    style={{
-                      backgroundColor:
-                        activeStep === index
-                          ? "#28ACF5" // Active step background color
-                          : completed[index]
-                          ? "#fff" // Completed step background color
-                          : "#fff", // Incomplete step background color
-                      color:
-                        activeStep === index
-                          ? "#fff" // Active step background color
-                          : completed[index]
-                          ? "#535353" // Completed step background color
-                          : "#535353", // Incomplete step background color
-                      padding: "5px 10px",
-                      borderRadius: "5px",
-                    }}
-                  >
-                    {index === 2 ? " Bill   " : label}
-                    {/* Add space before and after "Bill" */}
-                  </span>
-                </Step>
-              ))}
-            </Stepper>
+              <Stepper
+                className={classes.stepSettings}
+                nonLinear
+                activeStep={activeStep}
+                connector={""}
+                padding="0"
+              >
+                {steps.map((label, index) => (
+                  <Step completed={completed[index]} key={label}>
+                    <span
+                      className={`${classes.stepButton} ${
+                        index === 2 ? classes.billStep : classes.otherStep
+                      }`}
+                      onClick={handleStep(index)}
+                      completed={completed[index]}
+                      style={{
+                        backgroundColor:
+                          activeStep === index
+                            ? "#28ACF5" // Active step background color
+                            : completed[index]
+                            ? "#fff" // Completed step background color
+                            : "#fff", // Incomplete step background color
+                        justifyContent: "space-between",
+                        color:
+                          activeStep === index
+                            ? "#fff" // Active step background color
+                            : completed[index]
+                            ? "#535353" // Completed step background color
+                            : "#535353", // Incomplete step background color
+                        padding: "5px 10px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      {index === 2 ? " Bill   " : label}
+                    </span>
+                  </Step>
+                ))}
+              </Stepper>
 
-            <div>
               <>
                 <StyledBox>
                   <Typography
@@ -275,6 +270,9 @@ const FormData = () => {
                           }}
                           onClick={() => {
                             setFieldValue("residence", choice);
+                            setTimeout(() => {
+                              handleNext();
+                            }, 500);
                             setResidence(choice);
                           }}
                           startIcon={
@@ -300,6 +298,10 @@ const FormData = () => {
                           }}
                           onClick={() => {
                             setFieldValue("owner", choice);
+                            setTimeout(() => {
+                              handleNext();
+                            }, 500);
+
                             setOwner(choice);
                           }}
                           startIcon={
@@ -319,12 +321,16 @@ const FormData = () => {
                           className={
                             activeStep === 2 ? classes.qBtnSimple : classes.qBtn
                           }
-                          style={{
-                            backgroundColor:
-                              bill === choice ? "#D2D2D2" : "#F8F8F8",
-                          }}
+                          // style={{
+                          //   backgroundColor:
+                          //     bill === choice ? "#D2D2D2" : "#F8F8F8",
+                          // }}
                           onClick={() => {
                             setFieldValue("bill", choice);
+                            setTimeout(() => {
+                              handleNext();
+                            }, 500);
+
                             setBill(choice);
                           }}
                           startIcon={
@@ -489,11 +495,11 @@ const FormData = () => {
                   </Button>
                 </StyledBox>
               </>
-            </div>
-          </StyledBox>
-        </Form>
-      )}
-    </Formik>
+            </StyledBox>
+          </Form>
+        )}
+      </Formik>
+    </StyledBox>
   );
 };
 

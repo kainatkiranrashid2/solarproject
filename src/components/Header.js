@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import useStyles from "../styles and css/styles";
 import headerImage from "../assets/headerImage.svg";
 import solarSecure from "../assets/solarsecure.png";
+import FormData from "./Form";
 
 const Header = () => {
   const StyledBox = styled(Box)(({ theme, sx }) => ({
@@ -28,9 +29,10 @@ const Header = () => {
           className={classes.headerImageScr}
         />
       </StyledBox>
-      {/* <StyledTypography className={classes.mainTypo}>
+      <StyledTypography className={classes.mainTypo}>
         See how much you can save by going Solar!
-      </StyledTypography> */}
+      </StyledTypography>
+      <FormData />
     </StyledBox>
   );
 };
