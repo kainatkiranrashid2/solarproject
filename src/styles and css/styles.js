@@ -266,9 +266,12 @@ const useStyles = makeStyles((theme) => ({
   },
   stepSettings: {
     display: "flex",
-    justifyContent: "space-between !important",
+    justifyContent: "space-between ",
     alignItems: "center",
     width: "100% !important",
+    [theme.breakpoints.down("xs")]: {
+      width: "100vw !important",
+    },
   },
   backButton: {
     "& .MuiSvgIcon-root": {
@@ -444,6 +447,27 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up("md")]: {
       fontSize: "12px !important",
+    },
+  },
+  footerAnchors: {
+    color: "#2A4E96",
+    lineHeight: "15px !important",
+    fontFamily: "Nunito !important",
+    fontWeight: "500 !important",
+    textAlign: "center !important",
+    // fontSize: "10px !important",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "12px !important",
+    },
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "13px !important",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "14px !important",
+    },
+
+    [theme.breakpoints.up("md")]: {
+      fontSize: "15px !important",
     },
   },
 }));

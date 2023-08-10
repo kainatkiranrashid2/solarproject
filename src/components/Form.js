@@ -177,12 +177,7 @@ const FormData = () => {
   };
 
   return (
-    <StyledBox
-      sx={{
-        width: "100%",
-        justifyContent: "space-between",
-      }}
-    >
+    <StyledBox>
       <Formik
         initialValues={{
           residence: "",
@@ -204,7 +199,7 @@ const FormData = () => {
               sx={{ width: "100% " }}
               display="flex"
               flexDirection="column"
-              justifyContent="space-between"
+              // justifyContent="space-between"
               alignItems="center"
             >
               <Stepper
@@ -215,7 +210,7 @@ const FormData = () => {
                 padding="0"
               >
                 {steps.map((label, index) => (
-                  <Step completed={completed[index]} key={label}>
+                  <Step completed={completed[index]} key={label} padding={0}>
                     <span
                       className={`${classes.stepButton} ${
                         index === 2 ? classes.billStep : classes.otherStep
@@ -229,7 +224,7 @@ const FormData = () => {
                             : completed[index]
                             ? "#fff" // Completed step background color
                             : "#fff", // Incomplete step background color
-                        justifyContent: "space-between",
+
                         color:
                           activeStep === index
                             ? "#fff" // Active step background color

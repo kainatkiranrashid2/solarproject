@@ -9,7 +9,6 @@ import TextBanner from "./components/TextBanner";
 import Banner from "./components/Banner";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const StyledBox = styled(Box)(({ theme, sx }) => ({ ...sx }));
