@@ -91,6 +91,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     width: 100,
+    height: "14em",
   },
 
   headerImage: {
@@ -209,7 +210,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "23px !important",
     padding: "1em 2em !important",
     position: "relative", // Enable positioning context for the button
-    backgroundColor: "#F8F8F8 !important",
     color: "#6B6B6B",
     fontFamily: "Poppins !important",
     fontWeight: "500 !important",

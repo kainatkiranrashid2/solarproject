@@ -26,7 +26,6 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 const steps = ["Residence", "Owner", "Bill ", "Address", "Submit!"];
 
 const FormData = () => {
-  const [selectedAddress, setSelectedAddress] = useState(null);
   const [residence, setResidence] = useState();
   const [owner, setOwner] = useState();
   const [bill, setBill] = useState();
@@ -279,7 +278,6 @@ const FormData = () => {
                         </Button>
                       ))
                     ) : activeStep === 1 ? (
-                      // Step 3: Owner Step
                       questions[activeStep].choices.map((choice, index) => (
                         <Button
                           key={`choice-${index}`}
@@ -316,17 +314,16 @@ const FormData = () => {
                           className={
                             activeStep === 2 ? classes.qBtnSimple : classes.qBtn
                           }
-                          // style={{
-                          //   backgroundColor:
-                          //     bill === choice ? "#D2D2D2" : "#F8F8F8",
-                          // }}
+                          style={{
+                            backgroundColor:
+                              bill === choice ? "#D2D2D2" : "#F8F8F8",
+                          }}
                           onClick={() => {
                             setFieldValue("bill", choice);
+                            setBill(choice);
                             setTimeout(() => {
                               handleNext();
                             }, 500);
-
-                            setBill(choice);
                           }}
                           startIcon={
                             questions[activeStep].icons &&
@@ -421,6 +418,7 @@ const FormData = () => {
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
+                            marginTop: "1em",
                           }}
                         >
                           {questions[activeStep].fields.map((field, index) => (
