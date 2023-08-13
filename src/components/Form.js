@@ -209,9 +209,11 @@ const FormData = () => {
                 {steps.map((label, index) => (
                   <Step completed={completed[index]} key={label} padding={0}>
                     <StepButton
+                      padding={0}
                       onClick={handleStep(index)}
                       completed={completed[index]}
                     />
+
                     {/* <span
                       className={`${classes.stepButton} ${
                         index === 2 ? classes.billStep : classes.otherStep

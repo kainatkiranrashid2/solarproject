@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
       height: "3em",
     },
   },
+
   billStep: {
     padding: ".25em 2.5em !important",
     [theme.breakpoints.down("xs")]: {
@@ -271,7 +272,7 @@ const useStyles = makeStyles((theme) => ({
   },
   backButton: {
     "& .MuiSvgIcon-root": {
-      fontSize: 14, // Adjust the size to your desired value
+      fontSize: "12px", // Adjust the size to your desired value
       width: "1.5em", // Adjust the width to the same value as fontSize
       height: "1.5em",
       padding: 0,
