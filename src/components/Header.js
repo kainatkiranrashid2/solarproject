@@ -19,18 +19,18 @@ const Header = () => {
     <StyledBox className={classes.headerMain}>
       <StyledBox className={classes.headerBox}>
         <img
-          src={headerImage}
-          alt="headerImage"
-          className={classes.headerImage}
-        />
-        <img
           src={solarSecure}
           alt="headerImage"
           className={classes.headerImageScr}
         />
+        <img
+          src={headerImage}
+          alt="headerImage"
+          className={classes.headerImage}
+        />
       </StyledBox>
       <StyledTypography className={classes.mainTypo}>
-        See how much you can save by going Solar!
+        Get free quote & See how much you can save by going Solar!
       </StyledTypography>
       <FormData />
     </StyledBox>

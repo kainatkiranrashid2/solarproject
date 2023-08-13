@@ -22,6 +22,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import StepButton from "@mui/material/StepButton";
 
 const steps = ["Residence", "Owner", "Bill ", "Address", "Submit!"];
 
@@ -190,8 +191,7 @@ const FormData = () => {
         }}
         innerRef={formRef}
         onSubmit={handleSubmit}
-        validationSchema={validationSchema}
-      >
+        validationSchema={validationSchema}>
         {({ values, setFieldValue }) => (
           <Form>
             <StyledBox
@@ -199,18 +199,20 @@ const FormData = () => {
               display="flex"
               flexDirection="column"
               // justifyContent="space-between"
-              alignItems="center"
-            >
+              alignItems="center">
               <Stepper
                 className={classes.stepSettings}
                 nonLinear
                 activeStep={activeStep}
                 connector={""}
-                padding="0"
-              >
+                padding="0">
                 {steps.map((label, index) => (
                   <Step completed={completed[index]} key={label} padding={0}>
-                    <span
+                    <StepButton
+                      onClick={handleStep(index)}
+                      completed={completed[index]}
+                    />
+                    {/* <span
                       className={`${classes.stepButton} ${
                         index === 2 ? classes.billStep : classes.otherStep
                       }`}
@@ -235,7 +237,7 @@ const FormData = () => {
                       }}
                     >
                       {index === 2 ? " Bill   " : label}
-                    </span>
+                    </span> */}
                   </Step>
                 ))}
               </Stepper>
@@ -244,8 +246,7 @@ const FormData = () => {
                 <StyledBox>
                   <Typography
                     className={classes.qText}
-                    sx={{ mt: 1, mb: 1, py: 1 }}
-                  >
+                    sx={{ mt: 1, mb: 1, py: 1 }}>
                     {questions[activeStep].question}
                   </Typography>
                   <StyledBox className={classes.questionsHeaderMain}>
@@ -272,8 +273,7 @@ const FormData = () => {
                           startIcon={
                             questions[activeStep].icons &&
                             questions[activeStep].icons[index]
-                          }
-                        >
+                          }>
                           {choice}
                         </Button>
                       ))
@@ -300,8 +300,7 @@ const FormData = () => {
                           startIcon={
                             questions[activeStep].icons &&
                             questions[activeStep].icons[index]
-                          }
-                        >
+                          }>
                           {choice ? "Yes" : "No"}
                         </Button>
                       ))
@@ -328,8 +327,7 @@ const FormData = () => {
                           startIcon={
                             questions[activeStep].icons &&
                             questions[activeStep].icons[index]
-                          }
-                        >
+                          }>
                           {choice}
                         </Button>
                       ))
@@ -399,8 +397,7 @@ const FormData = () => {
                                     suggestion,
                                     suggestion.place_id
                                   )
-                                }
-                              >
+                                }>
                                 {suggestion.description}
                               </div>
                             ))}
@@ -419,8 +416,7 @@ const FormData = () => {
                             justifyContent: "center",
                             alignItems: "center",
                             marginTop: "1em",
-                          }}
-                        >
+                          }}>
                           {questions[activeStep].fields.map((field, index) => (
                             <TextField
                               id={`field-${index}`}
@@ -466,15 +462,13 @@ const FormData = () => {
                     alignItems: "center",
                     pt: 1,
                     mt: 1,
-                  }}
-                >
+                  }}>
                   <Button
                     color="inherit"
                     disabled={activeStep === 0}
                     onClick={handleBack}
                     className={classes.backButton}
-                    startIcon={<KeyboardBackspaceIcon />}
-                  ></Button>
+                    startIcon={<KeyboardBackspaceIcon />}></Button>
                   <Button
                     onClick={
                       activeStep === steps.length - 1
@@ -482,8 +476,7 @@ const FormData = () => {
                         : handleNext
                     }
                     className={classes.forwardButton}
-                    endIcon={<ArrowForwardIcon mr={3} />}
-                  >
+                    endIcon={<ArrowForwardIcon mr={3} />}>
                     {activeStep === steps.length - 1 ? "Submit" : "Next Step"}
                   </Button>
                 </StyledBox>

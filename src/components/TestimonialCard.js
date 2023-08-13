@@ -59,7 +59,7 @@ const TestimonialCard = () => {
             alignItems: "center",
           }}>
           <StyledTypography className={classes.testText}>
-            100,000+
+            2,100+
           </StyledTypography>
           <StyledTypography className={classes.testText}>
             Satisfied Customers
@@ -98,7 +98,7 @@ const TestimonialCard = () => {
             alignItems: "center",
           }}>
           <StyledTypography className={classes.testText}>
-            100,000+
+            50,000+
           </StyledTypography>
           <StyledTypography className={classes.testText}>
             MW Electricity Saved

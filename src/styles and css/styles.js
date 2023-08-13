@@ -2,11 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {},
   mainRoot: {
-    [theme.breakpoints.down("sm")]: {
-      height: "200vh",
-      marginTop: ".5em",
-      // backgroundImage: `linear-gradient(180deg, #FFFFE9 0%, #A7D4FF 100%)`,
-    },
     [theme.breakpoints.up("sm")]: {
       width: "80vw",
       // height: "100vh",
@@ -91,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     width: 100,
-    height: "14em",
+    height: "16em",
   },
 
   headerImage: {
@@ -131,23 +126,23 @@ const useStyles = makeStyles((theme) => ({
     color: "#28ACF5 !important",
     lineHeight: "31.5px !important",
     fontFamily: "Nunito !important",
-    fontWeight: "600 !important",
+    fontWeight: "700 !important",
     margin: " 1em 0 !important",
     padding: "0 1em !important",
     textAlign: "center !important",
     fontSize: "12px !important",
     [theme.breakpoints.down("sm")]: {
       fontSize: "12px !important",
-      lineHeight: "25.5px !important",
+      lineHeight: "18.5px !important",
     },
     [theme.breakpoints.up("xs")]: {
-      fontSize: "16px !important",
-      lineHeight: "20.5px !important",
+      fontSize: "18px !important",
+      lineHeight: "22.5px !important",
     },
 
     [theme.breakpoints.up("md")]: {
-      fontSize: "20px !important",
-      lineHeight: "22.5px !important",
+      fontSize: "23px !important",
+      lineHeight: "25.5px !important",
     },
   },
   qBtn: {
@@ -181,15 +176,15 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       "&::before": {
         borderRadius: "23px !important",
+        border: "2px solid black",
         content: '""',
         position: "absolute",
-        width: "100%",
-        height: "100%",
+        width: "98%",
+        height: "98%",
         color: "white",
-        opacity: "0.1",
+        opacity: "0.5",
         backgroundColor: "#28ACF5", // Adjust the color as needed
-        top: "5px", // Adjust as needed to position the rectangle below the button
-        left: "10px", // Adjust as needed to position the rectangle to the left of the button
+        // Adjust as needed to position the rectangle to the left of the button
         // zIndex: -1,
       },
     },
@@ -231,37 +226,38 @@ const useStyles = makeStyles((theme) => ({
     },
     "&:hover": {
       "&::before": {
+        borderRadius: "23px !important",
+        border: "4px solid black",
         content: '""',
         position: "absolute",
-        width: "100%",
-        height: "100%",
-        color: "whtie",
-        borderRadius: "23px !important",
-        opacity: "0.2",
+        width: "96%",
+        height: "96%",
+        color: "white",
+        opacity: "0.5",
         backgroundColor: "#28ACF5", // Adjust the color as needed
-        // Adjust the color as needed
-        top: "05px", // Adjust as needed to position the rectangle below the button
-        left: "10px", // Adjust as needed to position the rectangle to the left of the button
-        // zIndex: -1,
       },
     },
   },
   qText: {
     fontFamily: "Poppins !important",
-    fontWeight: "700 !important",
+    fontWeight: "400 !important",
     fontSize: "24px !important",
     lineHeight: "31px",
     textAlign: "center",
-    color: "#0779B8",
+    color: "#000",
     marginTop: ".5em !important",
-    animation: "$fadeIn 1s ease-in-out",
+    animation: "$fadeInUp 1s ease-in-out",
   },
-  "@keyframes fadeIn": {
+  "@keyframes fadeInUp": {
     "0%": {
       opacity: 0,
+      top: "20px",
+      transform: "translateY(50%)",
     },
     "100%": {
       opacity: 1,
+      top: 0,
+      transform: "translateY(0%)",
     },
   },
   stepSettings: {
@@ -276,8 +272,8 @@ const useStyles = makeStyles((theme) => ({
   backButton: {
     "& .MuiSvgIcon-root": {
       fontSize: 14, // Adjust the size to your desired value
-      width: "2em", // Adjust the width to the same value as fontSize
-      height: "2em",
+      width: "1.5em", // Adjust the width to the same value as fontSize
+      height: "1.5em",
       padding: 0,
       color: "#535353", // Adjust the height to the same value as fontSize
     },
@@ -289,15 +285,15 @@ const useStyles = makeStyles((theme) => ({
     padding: " .5em !important",
     borderRadius: "6px",
     fontFamily: "Nunito !important",
-    fontWeight: "600 !important",
+    fontWeight: "400 !important",
     fontSize: "12px !important",
-    lineHeight: "19.5px",
+    lineHeight: "14.5px",
     textAlign: "center",
     // Adjust the spacing as desired
     "& .MuiSvgIcon-root": {
-      fontSize: 14, // Adjust the size to your desired value
-      width: "2em", // Adjust the width to the same value as fontSize
-      height: "2em",
+      fontSize: "10px", // Adjust the size to your desired value
+      width: "1.5em", // Adjust the width to the same value as fontSize
+      height: "1.5em",
       padding: 0,
     },
     color: "white !important", // Change the background color of the button
@@ -337,17 +333,14 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "14px !important",
     fontFamily: "Nunito !important",
     fontWeight: "600 !important",
-    margin: "2em 0 !important",
+    margin: "1em 0 !important",
     // padding: "0 1em !important",headerImage
     textAlign: "center !important",
     fontSize: "10px !important",
     [theme.breakpoints.down("xs")]: {
       fontSize: "15px !important",
     },
-    [theme.breakpoints.up("xs")]: {
-      fontSize: "19px !important",
-    },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.up("sm")]: {
       fontSize: "14px !important",
     },
 
